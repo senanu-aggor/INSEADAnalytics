@@ -5,12 +5,12 @@
 getdata.fromscratch = 1
 
 website_used = "yahoo" # can be "yahoo" or other ( see help(getSymbols) ). Depending on the website we may need to change the stock tickers' representation
-mytickers = c("SPY", "AAPL", "YHOO")  # Other tickers for example are "GOOG", "GS", "TSLA", "FB", "MSFT", 
+mytickers = c("SPY", "AAPL")  # Other tickers for example are "GOOG", "GS", "TSLA", "FB", "MSFT", 
 startDate = "2005-01-01"
 
 if (getdata.fromscratch){
   # Get SPY first, to get all trading days
-  tmp<-as.matrix(try(getSymbols(Symbols="SPY",from = startDate,src = website_used, auto.assign=FALSE)))
+  tmp<-as.matrix(try(getSymbols(Symbols="AAPL",from = startDate,src = website_used, auto.assign=FALSE)))
   StockPrices=matrix(rep(0,nrow(tmp)*length(mytickers)), ncol=length(mytickers))
   colnames(StockPrices)<-mytickers; 
   rownames(StockPrices)<-rownames(tmp)
@@ -34,10 +34,6 @@ if (getdata.fromscratch){
   # Get the daily returns now. Use the simple percentage difference approach 
   StockReturns= ifelse(head(StockPrices,-1)!=0, (tail(StockPrices,-1)-head(StockPrices,-1))/head(StockPrices,-1),0) # note that this removes the first day as we have no way to get the returns then!
   rownames(StockReturns)<-tail(rownames(StockPrices),-1) # adjust the dates by 1 day now
-  
-  # Copied data Get the daily returns now. Use the simple percentage difference approach 
-  stockreturns2= ifelse(head(StockPrices,-1)!=0, (tail(StockPrices,-1)-head(StockPrices,-1))/head(StockPrices,-1),0) # note that this removes the first day as we have no way to get the returns then!
-  rownames(stockreturns2)<-tail(rownames(StockPrices),-1) # adjust the dates by 1 day now
   
   # Now remove the first day from the other data, too
   StockPrices = StockPrices[rownames(StockReturns),]

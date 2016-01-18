@@ -147,9 +147,13 @@ We can also transpose the matrix of returns to create a new "horizontal" matrix.
 1. What R commands can you use to get the number of rows and number of columns of the new matrix called transposedData?
 2. Based on the help for the R function *apply* (`help(apply)`), can you create again the portfolio of S&P and Apple and plot the returns in a new figure below?
 
+
+
 **Your Answers here:**
 <br> ncol(transposedData) nrow(transposedData)
-<br>```{r echo=FALSE, comment=NA, warning=FALSE, message=FALSE,results='asis',fig.align='center', fig=TRUE}
+
+
+```{r echo=FALSE, comment=NA, warning=FALSE, message=FALSE,results='asis',fig.align='center', fig=TRUE}
 portfolio2 = apply(stockreturns2,1,mean)
 names(portfolio2) <- rownames(stockreturns2)
 pnl_plot(portfolio2)
@@ -170,7 +174,8 @@ This is an important step and will get you to think about the overall process on
 2. *(Extra Exercise)*  Can you get the returns of a few companies and plot the returns of an equal weighted portfolio with those companies during some period you select? 
 
 **Your Answers here:**
-<br>
+<br> Question 1: Line 9 - startDate = "2005-01-01". We rerun by source the dataSet1.R again
+
 <br>
 <br>
 <br>
@@ -197,6 +202,7 @@ Try it!
 #### Questions
 
 1. Once you write and read the data as described above, what happens when you run this command in the console of the RStudio: `sum(myData != StockReturns[1:20,])`
+
 2. *(Extra exercise)* What do you think will happen if you now run this command, and why:  
 
 ```{r eval = FALSE, echo=TRUE}
@@ -204,7 +210,10 @@ myData + StockReturns[1:40,])
 ```
 
 **Your Answers here:**
-<br>
+<br> Question 1: Returns a value of 20. The command run a logical test to compare both the variable myData against StockReturns for the first 20 rows and and all columns.
+
+It returns "20" because the logical test is True and since True is equal to the numeric variable 1, it sums up the 20 rows of True.
+
 <br>
 <br>
 <br>
