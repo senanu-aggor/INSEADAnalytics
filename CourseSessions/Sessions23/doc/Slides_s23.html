@@ -1,0 +1,2417 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Analytics for Business</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Data Analytics for Business">
+  <meta name="author" content="T. Evgeniou">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/slides" 
+    src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Data Analytics for Business</h1>
+    <h2>Session 2-3, Dimensionality Reduction and Derived Attributes (Technical Slides)</h2>
+    <p>T. Evgeniou<br/>INSEAD</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Why this class? Three goals</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><p>Organizational Level: Develop your intuition about identifying data analytics opportunities and their implementation challenges  </p></li>
+<li><p>Project Level: Learn how to approach data analytics projects  </p></li>
+<li><p>Analysis Level: Learn how to perform, read, and use key data analytics methods.</p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Data Analytics Processes: Iterative Process Cycle with a Lifetime</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Step 1: Defining the Objective(s)  </p>
+
+<p>Step 2: Data Preparation and Exploration</p>
+
+<p>Step 3: Analysis</p>
+
+<p>Step 4: Performance Assessment</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>What is Dimensionality Deduction and Factor Analysis?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Derive new  variables which are (linear) combinations of the original ones and capture most of the information in the original data. </p>
+
+<p>Is often used as a first step in Data Analytics</p>
+
+<p>Can also be used to solve multicollinearity issues in regression</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Factor Analysis: Key idea</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><p>Transform the original selected variables into a smaller set of factors</p></li>
+<li><p>Understand the underlying structure of the data and the new factors</p></li>
+<li><p>Use the factors for subsequent analysis</p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Key Questions</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><p>Can we really simplify the data by grouping the raw attributes?</p></li>
+<li><p>How many factors should we use?</p></li>
+<li><p>How good are the factors we found?</p></li>
+<li><p>How interpretable and actionable are the factors we found? </p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Dimensionality Reduction and Factor Analysis: 6 (Easy) Steps</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><p>Confirm the data is metric </p></li>
+<li><p>Decide whether to scale or standardize the data</p></li>
+<li><p>Check the correlation matrix to see if Factor Analysis makes sense</p></li>
+<li><p>Develop a scree plot and decide on the number of factors to be derived</p></li>
+<li><p>Interpret the factors (consider factor rotations - technical but useful)</p></li>
+<li><p>Save factor scores for subsequent analyses</p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Applying Factor Analysis: Evaluating MBA Applications</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Variables available:</p>
+
+<ul>
+<li>GPA</li>
+<li>GMAT score</li>
+<li>Scholarships, fellowships won</li>
+<li>Evidence of Communications skills </li>
+<li>Prior Job Experience</li>
+<li>Organizational Experience</li>
+<li>Other extra curricular achievements</li>
+</ul>
+
+<p>Which variables are correlated? What do these variables capture?</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Example Factors</h2>
+  </hgroup>
+  <article data-timings="">
+    <style>
+.wrapper{
+height: 120%;
+width: 900px;
+overflow: auto;
+}
+</style>
+
+<div class="wrapper" style="font-size:20px;">
+<div class="row">
+<div class="col-md-3">
+<!-- Table generated in R 3.2.2 by googleVis 0.5.10 package -->
+<!-- Wed Jan 27 15:37:30 2016 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataTableID37809553500 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "GPA",
+0.96,
+-0.05 
+],
+[
+ "GMAT",
+0.95,
+0.19 
+],
+[
+ "Fellow",
+0.95,
+-0.01 
+],
+[
+ "Comm",
+0.7,
+0.54 
+],
+[
+ "Job.Ex",
+0.19,
+0.93 
+],
+[
+ "Organze",
+0.01,
+0.89 
+],
+[
+ "Extra",
+0.01,
+0.86 
+] 
+];
+data.addColumn('string','Variables');
+data.addColumn('number','Component 1');
+data.addColumn('number','Component 2');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartTableID37809553500() {
+var data = gvisDataTableID37809553500();
+var options = {};
+options["allowHtml"] = true;
+options["showRowNumber"] = true;
+options["width"] =   1220;
+options["height"] =    400;
+options["allowHTML"] = true;
+options["page"] = "disable";
+
+    var chart = new google.visualization.Table(
+    document.getElementById('TableID37809553500')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "table";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartTableID37809553500);
+})();
+function displayChartTableID37809553500() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+<!-- jsChart -->  
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID37809553500"></script>
+ 
+<!-- divChart -->
+  
+<div id="TableID37809553500" 
+  style="width: 1220; height: 400;">
+</div>
+
+<p></div>
+</div>
+</div></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>Step 1: Confirm the data are metric</h2>
+  </hgroup>
+  <article data-timings="">
+    <style>
+.wrapper{
+height: 120%;
+width: 900px;
+overflow: auto;
+}
+</style>
+
+<div class="wrapper" style="font-size:20px;">
+<div class="row">
+<div class="col-md-3">
+<!-- Table generated in R 3.2.2 by googleVis 0.5.10 package -->
+<!-- Wed Jan 27 15:37:31 2016 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataTableID378019346a13 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "1",
+3,
+580,
+2,
+3.5,
+5,
+3.8,
+4 
+],
+[
+ "2",
+3.2,
+570,
+2,
+3.8,
+6,
+3.8,
+3.8 
+],
+[
+ "3",
+3.7,
+690,
+3,
+3.3,
+3,
+3.2,
+3.6 
+],
+[
+ "4",
+3.9,
+760,
+3,
+3.8,
+5,
+3.9,
+3.2 
+],
+[
+ "5",
+2.8,
+480,
+2,
+3.2,
+6,
+3.8,
+3.8 
+],
+[
+ "6",
+3.4,
+520,
+2.5,
+2.6,
+2,
+2.5,
+2.4 
+],
+[
+ "7",
+3.6,
+670,
+3,
+3.7,
+4,
+3.5,
+2.9 
+],
+[
+ "8",
+3.6,
+760,
+3,
+3.9,
+5,
+3.3,
+3.2 
+],
+[
+ "9",
+2.8,
+380,
+1,
+2,
+3,
+2.9,
+3.1 
+],
+[
+ "10",
+3.6,
+560,
+3,
+2.8,
+2,
+1,
+2.8 
+],
+[
+ "11",
+2.8,
+480,
+2,
+3.2,
+4,
+3.4,
+3.7 
+],
+[
+ "12",
+3.6,
+590,
+3.4,
+3.4,
+5,
+3.7,
+3.6 
+],
+[
+ "13",
+3.8,
+720,
+3.8,
+3.8,
+6,
+3.8,
+3.7 
+],
+[
+ "14",
+3.5,
+680,
+3,
+3.6,
+6,
+3.4,
+3.8 
+],
+[
+ "15",
+3.9,
+700,
+3.7,
+3.8,
+2,
+2.1,
+2.7 
+],
+[
+ "16",
+3.3,
+560,
+2.8,
+3.4,
+5,
+3.8,
+2.7 
+],
+[
+ "17",
+2.8,
+440,
+1,
+3.3,
+5,
+3.5,
+3.8 
+],
+[
+ "18",
+2.5,
+430,
+1,
+3.1,
+3,
+3.1,
+2.9 
+],
+[
+ "19",
+2.5,
+420,
+1,
+2.8,
+2,
+2.3,
+2.5 
+],
+[
+ "20",
+3.8,
+680,
+2.8,
+3.7,
+6,
+3.2,
+3.8 
+] 
+];
+data.addColumn('string','Variables');
+data.addColumn('number','GPA');
+data.addColumn('number','GMAT');
+data.addColumn('number','Fellow');
+data.addColumn('number','Comm');
+data.addColumn('number','Job.Ex');
+data.addColumn('number','Organze');
+data.addColumn('number','Extra');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartTableID378019346a13() {
+var data = gvisDataTableID378019346a13();
+var options = {};
+options["allowHtml"] = true;
+options["showRowNumber"] = true;
+options["width"] =   1220;
+options["height"] =    400;
+options["allowHTML"] = true;
+options["page"] = "disable";
+
+    var chart = new google.visualization.Table(
+    document.getElementById('TableID378019346a13')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "table";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartTableID378019346a13);
+})();
+function displayChartTableID378019346a13() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+<!-- jsChart -->  
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID378019346a13"></script>
+ 
+<!-- divChart -->
+  
+<div id="TableID378019346a13" 
+  style="width: 1220; height: 400;">
+</div>
+
+<p></div>
+</div>
+</div></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Step 2: Decide whether to scale or standardize the data: Summary Statistics</h2>
+  </hgroup>
+  <article data-timings="">
+    <style>
+.wrapper{
+height: 120%;
+width: 900px;
+overflow: auto;
+}
+</style>
+
+<div class="wrapper" style="font-size:20px;">
+<div class="row">
+<div class="col-md-3">
+<!-- Table generated in R 3.2.2 by googleVis 0.5.10 package -->
+<!-- Wed Jan 27 15:37:32 2016 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataTableID37804bc71fe9 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "GPA",
+2.5,
+2.8,
+3.45,
+3.31,
+3.62,
+3.9,
+0.47 
+],
+[
+ "GMAT",
+380,
+480,
+575,
+583.5,
+682.5,
+760,
+119.44 
+],
+[
+ "Fellow",
+1,
+2,
+2.8,
+2.45,
+3,
+3.8,
+0.91 
+],
+[
+ "Comm",
+2,
+3.18,
+3.4,
+3.34,
+3.73,
+3.9,
+0.49 
+],
+[
+ "Job.Ex",
+2,
+3,
+5,
+4.25,
+5.25,
+6,
+1.52 
+],
+[
+ "Organze",
+1,
+3.05,
+3.4,
+3.2,
+3.8,
+3.9,
+0.73 
+],
+[
+ "Extra",
+2.4,
+2.88,
+3.4,
+3.3,
+3.8,
+4,
+0.52 
+] 
+];
+data.addColumn('string','Variables');
+data.addColumn('number','min');
+data.addColumn('number','X25.percent');
+data.addColumn('number','median');
+data.addColumn('number','mean');
+data.addColumn('number','X75.percent');
+data.addColumn('number','max');
+data.addColumn('number','std');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartTableID37804bc71fe9() {
+var data = gvisDataTableID37804bc71fe9();
+var options = {};
+options["allowHtml"] = true;
+options["showRowNumber"] = true;
+options["width"] =   1220;
+options["height"] =    400;
+options["allowHTML"] = true;
+options["page"] = "disable";
+
+    var chart = new google.visualization.Table(
+    document.getElementById('TableID37804bc71fe9')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "table";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartTableID37804bc71fe9);
+})();
+function displayChartTableID37804bc71fe9() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+<!-- jsChart -->  
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID37804bc71fe9"></script>
+ 
+<!-- divChart -->
+  
+<div id="TableID37804bc71fe9" 
+  style="width: 1220; height: 400;">
+</div>
+
+<p></div>
+</div>
+</div></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>Data Standardization: Example Code</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">ProjectDatafactor_scaled=apply(ProjectDataFactor,2, function(r) {
+  if (sd(r)!=0) { 
+    res=(r-mean(r))/sd(r) 
+    } else { 
+      res=0*r; res
+      }
+  })
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Standardized Data: Summary Statistics</h2>
+  </hgroup>
+  <article data-timings="">
+    <style>
+.wrapper{
+height: 120%;
+width: 900px;
+overflow: auto;
+}
+</style>
+
+<div class="wrapper" style="font-size:20px;">
+<div class="row">
+<div class="col-md-3">
+<!-- Table generated in R 3.2.2 by googleVis 0.5.10 package -->
+<!-- Wed Jan 27 15:37:33 2016 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataTableID378054d95b78 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "GPA",
+-1.72,
+-1.08,
+0.31,
+0,
+0.68,
+1.27,
+1 
+],
+[
+ "GMAT",
+-1.7,
+-0.87,
+-0.07,
+0,
+0.83,
+1.48,
+1 
+],
+[
+ "Fellow",
+-1.6,
+-0.5,
+0.39,
+0,
+0.61,
+1.49,
+1 
+],
+[
+ "Comm",
+-2.73,
+-0.33,
+0.13,
+0,
+0.8,
+1.16,
+1 
+],
+[
+ "Job.Ex",
+-1.48,
+-0.82,
+0.49,
+0,
+0.66,
+1.15,
+1 
+],
+[
+ "Organze",
+-2.99,
+-0.2,
+0.27,
+0,
+0.82,
+0.95,
+1 
+],
+[
+ "Extra",
+-1.75,
+-0.83,
+0.19,
+0,
+0.97,
+1.36,
+1 
+] 
+];
+data.addColumn('string','Variables');
+data.addColumn('number','min');
+data.addColumn('number','X25.percent');
+data.addColumn('number','median');
+data.addColumn('number','mean');
+data.addColumn('number','X75.percent');
+data.addColumn('number','max');
+data.addColumn('number','std');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartTableID378054d95b78() {
+var data = gvisDataTableID378054d95b78();
+var options = {};
+options["allowHtml"] = true;
+options["showRowNumber"] = true;
+options["width"] =   1220;
+options["height"] =    400;
+options["allowHTML"] = true;
+options["page"] = "disable";
+
+    var chart = new google.visualization.Table(
+    document.getElementById('TableID378054d95b78')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "table";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartTableID378054d95b78);
+})();
+function displayChartTableID378054d95b78() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+<!-- jsChart -->  
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID378054d95b78"></script>
+ 
+<!-- divChart -->
+  
+<div id="TableID378054d95b78" 
+  style="width: 1220; height: 400;">
+</div>
+
+<p></div>
+</div>
+</div></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Step 3:  Check correlation matrix to see if Factor Analysis makes sense</h2>
+  </hgroup>
+  <article data-timings="">
+    <style>
+.wrapper{
+height: 120%;
+width: 900px;
+overflow: auto;
+}
+</style>
+
+<div class="wrapper" style="font-size:20px;">
+<div class="row">
+<div class="col-md-3">
+<table border="1" class="data table table-bordered table-condensed">
+  <thead class="thead">
+    <tr>
+      <th></th>
+      <th>GPA</th>
+      <th>GMAT</th>
+      <th>Fellow</th>
+      <th>Comm</th>
+      <th>Job.Ex</th>
+      <th>Organze</th>
+      <th>Extra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="right">GPA</td>
+      <td align="right" style="background-color: rgb(0,255,0)">1.00</td>
+      <td align="right" style="background-color: rgb(25,255,25)">0.90</td>
+      <td align="right" style="background-color: rgb(20,255,20)">0.92</td>
+      <td align="right" style="background-color: rgb(112,255,112)">0.56</td>
+      <td align="right" style="background-color: rgb(217,255,217)">0.15</td>
+      <td align="right" style="background-color: rgb(255,248,248)">-0.03</td>
+      <td align="right" style="background-color: rgb(253,255,253)">0.01</td>
+    </tr>
+    <tr>
+      <td align="right">GMAT</td>
+      <td align="right" style="background-color: rgb(25,255,25)">0.90</td>
+      <td align="right" style="background-color: rgb(0,255,0)">1.00</td>
+      <td align="right" style="background-color: rgb(35,255,35)">0.86</td>
+      <td align="right" style="background-color: rgb(56,255,56)">0.78</td>
+      <td align="right" style="background-color: rgb(171,255,171)">0.33</td>
+      <td align="right" style="background-color: rgb(207,255,207)">0.19</td>
+      <td align="right" style="background-color: rgb(215,255,215)">0.16</td>
+    </tr>
+    <tr>
+      <td align="right">Fellow</td>
+      <td align="right" style="background-color: rgb(20,255,20)">0.92</td>
+      <td align="right" style="background-color: rgb(35,255,35)">0.86</td>
+      <td align="right" style="background-color: rgb(0,255,0)">1.00</td>
+      <td align="right" style="background-color: rgb(104,255,104)">0.59</td>
+      <td align="right" style="background-color: rgb(209,255,209)">0.18</td>
+      <td align="right" style="background-color: rgb(253,255,253)">0.01</td>
+      <td align="right" style="background-color: rgb(250,255,250)">0.02</td>
+    </tr>
+    <tr>
+      <td align="right">Comm</td>
+      <td align="right" style="background-color: rgb(112,255,112)">0.56</td>
+      <td align="right" style="background-color: rgb(56,255,56)">0.78</td>
+      <td align="right" style="background-color: rgb(104,255,104)">0.59</td>
+      <td align="right" style="background-color: rgb(0,255,0)">1.00</td>
+      <td align="right" style="background-color: rgb(102,255,102)">0.60</td>
+      <td align="right" style="background-color: rgb(135,255,135)">0.47</td>
+      <td align="right" style="background-color: rgb(156,255,156)">0.39</td>
+    </tr>
+    <tr>
+      <td align="right">Job.Ex</td>
+      <td align="right" style="background-color: rgb(217,255,217)">0.15</td>
+      <td align="right" style="background-color: rgb(171,255,171)">0.33</td>
+      <td align="right" style="background-color: rgb(209,255,209)">0.18</td>
+      <td align="right" style="background-color: rgb(102,255,102)">0.60</td>
+      <td align="right" style="background-color: rgb(0,255,0)">1.00</td>
+      <td align="right" style="background-color: rgb(51,255,51)">0.80</td>
+      <td align="right" style="background-color: rgb(58,255,58)">0.77</td>
+    </tr>
+    <tr>
+      <td align="right">Organze</td>
+      <td align="right" style="background-color: rgb(255,248,248)">-0.03</td>
+      <td align="right" style="background-color: rgb(207,255,207)">0.19</td>
+      <td align="right" style="background-color: rgb(253,255,253)">0.01</td>
+      <td align="right" style="background-color: rgb(135,255,135)">0.47</td>
+      <td align="right" style="background-color: rgb(51,255,51)">0.80</td>
+      <td align="right" style="background-color: rgb(0,255,0)">1.00</td>
+      <td align="right" style="background-color: rgb(99,255,99)">0.61</td>
+    </tr>
+    <tr>
+      <td align="right">Extra</td>
+      <td align="right" style="background-color: rgb(253,255,253)">0.01</td>
+      <td align="right" style="background-color: rgb(215,255,215)">0.16</td>
+      <td align="right" style="background-color: rgb(250,255,250)">0.02</td>
+      <td align="right" style="background-color: rgb(156,255,156)">0.39</td>
+      <td align="right" style="background-color: rgb(58,255,58)">0.77</td>
+      <td align="right" style="background-color: rgb(99,255,99)">0.61</td>
+      <td align="right" style="background-color: rgb(0,255,0)">1.00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p></div>
+</div></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>Step 4. Develop a scree plot and decide on the number of factors to be derived</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>For the method considered here (Principal Component Analysis):</p>
+
+<ul>
+<li>If there are n variables we will have n factors in total</li>
+<li>First factor will explain most of the variance, second next and so on.</li>
+</ul>
+
+<p>Eigenvalues and Variance Explained by Factors</p>
+
+<ul>
+<li>each factor will have an associated eigenvalue -  which corresponds to the amount of variance explained by that factor</li>
+<li>with standardized variables each variable has a variance of 1, and the sum of all eigenvalues with n raw attributes is n</li>
+<li>we would like to capture as much of the total variance as possible, while keeping as few factors as possible</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>How Many Factors? Eigenvalues and Variance Explained</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br></p>
+
+<style>
+.wrapper{
+height: 120%;
+width: 900px;
+overflow: auto;
+}
+</style>
+
+<div class="wrapper" style="font-size:20px;">
+<div class="row">
+<div class="col-md-3">
+<!-- Table generated in R 3.2.2 by googleVis 0.5.10 package -->
+<!-- Wed Jan 27 15:37:36 2016 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataTableID37806e22229f () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "Component No:1",
+3.743590932,
+53.47987046,
+53.47987046 
+],
+[
+ "Component No:2",
+2.267883829,
+32.39834042,
+85.87821088 
+],
+[
+ "Component No:3",
+0.4248511117,
+6.069301595,
+91.94751247 
+],
+[
+ "Component No:4",
+0.2879014132,
+4.112877331,
+96.0603898 
+],
+[
+ "Component No:5",
+0.1395511834,
+1.993588334,
+98.05397814 
+],
+[
+ "Component No:6",
+0.09841835557,
+1.405976508,
+99.45995465 
+],
+[
+ "Component No:7",
+0.0378031747,
+0.5400453529,
+100 
+] 
+];
+data.addColumn('string','Components');
+data.addColumn('number','Eigenvalue');
+data.addColumn('number','Percentage_of_explained_variance');
+data.addColumn('number','Cumulative_percentage_of_explained_variance');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartTableID37806e22229f() {
+var data = gvisDataTableID37806e22229f();
+var options = {};
+options["allowHtml"] = true;
+options["width"] =   1200;
+options["height"] =    400;
+options["allowHTML"] = true;
+options["page"] = "disable";
+
+  var dataFormat1 = new google.visualization.NumberFormat({pattern:"#.##"});
+  dataFormat1.format(data, 1);
+  var dataFormat2 = new google.visualization.NumberFormat({pattern:"#.##"});
+  dataFormat2.format(data, 2);
+  var dataFormat3 = new google.visualization.NumberFormat({pattern:"#.##"});
+  dataFormat3.format(data, 3);
+
+    var chart = new google.visualization.Table(
+    document.getElementById('TableID37806e22229f')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "table";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartTableID37806e22229f);
+})();
+function displayChartTableID37806e22229f() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+<!-- jsChart -->  
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID37806e22229f"></script>
+ 
+<!-- divChart -->
+  
+<div id="TableID37806e22229f" 
+  style="width: 1200; height: 400;">
+</div>
+
+<p></div>
+</div>
+</div></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>How Many Factors? Scree Plot</h2>
+  </hgroup>
+  <article data-timings="">
+    <!-- LineChart generated in R 3.2.2 by googleVis 0.5.10 package -->
+
+<!-- Wed Jan 27 15:37:37 2016 -->
+
+<!-- jsHeader -->
+
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataLineChartID378074515e6 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "1",
+3.743590932,
+1 
+],
+[
+ "2",
+2.267883829,
+1 
+],
+[
+ "3",
+0.4248511117,
+1 
+],
+[
+ "4",
+0.2879014132,
+1 
+],
+[
+ "5",
+0.1395511834,
+1 
+],
+[
+ "6",
+0.09841835557,
+1 
+],
+[
+ "7",
+0.0378031747,
+1 
+] 
+];
+data.addColumn('string','components');
+data.addColumn('number','eigenvalues');
+data.addColumn('number','abline');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartLineChartID378074515e6() {
+var data = gvisDataLineChartID378074515e6();
+var options = {};
+options["allowHtml"] = true;
+options["title"] = "Scree plot";
+options["legend"] = "right";
+options["width"] =    900;
+options["height"] =    500;
+options["hAxis"] = {title:'Number of Components', titleTextStyle:{color:'black'}};
+options["vAxes"] = [{title:'Eigenvalues'}];
+options["series"] = [{color:'green',pointSize:3, targetAxisIndex: 0}];
+
+    var chart = new google.visualization.LineChart(
+    document.getElementById('LineChartID378074515e6')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartLineChartID378074515e6);
+})();
+function displayChartLineChartID378074515e6() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+
+<!-- jsChart -->  
+
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartLineChartID378074515e6"></script>
+ 
+
+<!-- divChart -->
+
+<div id="LineChartID378074515e6" 
+  style="width: 900; height: 500;">
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>How many factors?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Three criteria to use:</p>
+
+<ul>
+<li>Eigenvalue &gt; 1</li>
+<li>Cumulative variance explained</li>
+<li>&quot;Elbow&quot; in the Scree plot</li>
+</ul>
+
+<p>Using the eigenvalue criterion we select 2 factors. </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Step 5. Interpret the factors</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Rotated Selected Factors using the varimax rotation.</p>
+
+<style>
+.wrapper{
+height: 120%;
+width: 900px;
+overflow: auto;
+}
+</style>
+
+<div class="wrapper" style="font-size:20px;">
+<div class="row">
+<div class="col-md-3">
+<!-- Table generated in R 3.2.2 by googleVis 0.5.10 package -->
+<!-- Wed Jan 27 15:37:40 2016 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataTableID37805e225723 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "GPA",
+0.96,
+-0.05 
+],
+[
+ "GMAT",
+0.95,
+0.19 
+],
+[
+ "Fellow",
+0.95,
+-0.01 
+],
+[
+ "Comm",
+0.7,
+0.54 
+],
+[
+ "Job.Ex",
+0.19,
+0.93 
+],
+[
+ "Organze",
+0.01,
+0.89 
+],
+[
+ "Extra",
+0.01,
+0.86 
+] 
+];
+data.addColumn('string','Variables');
+data.addColumn('number','Component 1');
+data.addColumn('number','Component 2');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartTableID37805e225723() {
+var data = gvisDataTableID37805e225723();
+var options = {};
+options["allowHtml"] = true;
+options["showRowNumber"] = true;
+options["width"] =   1220;
+options["height"] =    400;
+options["allowHTML"] = true;
+options["page"] = "disable";
+
+    var chart = new google.visualization.Table(
+    document.getElementById('TableID37805e225723')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "table";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartTableID37805e225723);
+})();
+function displayChartTableID37805e225723() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+<!-- jsChart -->  
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID37805e225723"></script>
+ 
+<!-- divChart -->
+  
+<div id="TableID37805e225723" 
+  style="width: 1220; height: 400;">
+</div>
+
+<p></div>
+</div>
+</div></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>For visualization, let&#39;s supress the small numbers...</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br></p>
+
+<style>
+.wrapper{
+height: 120%;
+width: 900px;
+overflow: auto;
+}
+</style>
+
+<div class="wrapper" style="font-size:20px;">
+<div class="row">
+<div class="col-md-3">
+<!-- Table generated in R 3.2.2 by googleVis 0.5.10 package -->
+<!-- Wed Jan 27 15:37:40 2016 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataTableID37801033548 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "GPA",
+0.96,
+null 
+],
+[
+ "GMAT",
+0.95,
+null 
+],
+[
+ "Fellow",
+0.95,
+null 
+],
+[
+ "Comm",
+0.7,
+0.54 
+],
+[
+ "Job.Ex",
+null,
+0.93 
+],
+[
+ "Organze",
+null,
+0.89 
+],
+[
+ "Extra",
+null,
+0.86 
+] 
+];
+data.addColumn('string','Variables');
+data.addColumn('number','Component 1');
+data.addColumn('number','Component 2');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartTableID37801033548() {
+var data = gvisDataTableID37801033548();
+var options = {};
+options["allowHtml"] = true;
+options["showRowNumber"] = true;
+options["width"] =   1220;
+options["height"] =    400;
+options["allowHTML"] = true;
+options["page"] = "disable";
+
+    var chart = new google.visualization.Table(
+    document.getElementById('TableID37801033548')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "table";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartTableID37801033548);
+})();
+function displayChartTableID37801033548() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+<!-- jsChart -->  
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID37801033548"></script>
+ 
+<!-- divChart -->
+  
+<div id="TableID37801033548" 
+  style="width: 1220; height: 400;">
+</div>
+
+<p></div>
+</div>
+</div></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>What Factor Loads &quot;Look Good&quot;? Three Technical Quality Criteria</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><p>For each factor (column) only a few loadings are large (in absolute value)</p></li>
+<li><p>For each raw attribute (row) only a few loadings are large (in absolute value)</p></li>
+<li><p>Any pair of factors (columns) should have different &quot;patterns&quot; of loading</p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>Step 6. Save factor scores for subsequent analyses</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br></p>
+
+<style>
+.wrapper{
+height: 120%;
+width: 900px;
+overflow: auto;
+}
+</style>
+
+<div class="wrapper" style="font-size:20px;">
+<div class="row">
+<div class="col-md-3">
+<!-- Table generated in R 3.2.2 by googleVis 0.5.10 package -->
+<!-- Wed Jan 27 15:37:41 2016 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataTableID3780757e775a () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "1",
+-0.46,
+1.05 
+],
+[
+ "2",
+-0.23,
+1.21 
+],
+[
+ "3",
+0.68,
+-0.24 
+],
+[
+ "4",
+1.13,
+0.4 
+],
+[
+ "5",
+-0.94,
+1.1 
+],
+[
+ "6",
+-0.14,
+-1.67 
+],
+[
+ "7",
+0.76,
+-0.17 
+],
+[
+ "8",
+1.02,
+0.21 
+],
+[
+ "9",
+-1.76,
+-0.72 
+],
+[
+ "10",
+0.43,
+-2.14 
+],
+[
+ "11",
+-0.87,
+0.4 
+],
+[
+ "12",
+0.47,
+0.47 
+],
+[
+ "13",
+1.17,
+0.85 
+],
+[
+ "14",
+0.55,
+0.8 
+],
+[
+ "15",
+1.49,
+-1.5 
+],
+[
+ "16",
+0.1,
+0.06 
+],
+[
+ "17",
+-1.3,
+0.86 
+],
+[
+ "18",
+-1.43,
+-0.36 
+],
+[
+ "19",
+-1.42,
+-1.31 
+],
+[
+ "20",
+0.74,
+0.69 
+] 
+];
+data.addColumn('string','Observation');
+data.addColumn('number','Derived Variable (Factor) 1');
+data.addColumn('number','Derived Variable (Factor) 2');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartTableID3780757e775a() {
+var data = gvisDataTableID3780757e775a();
+var options = {};
+options["allowHtml"] = true;
+options["showRowNumber"] = true;
+options["width"] =   1220;
+options["height"] =    400;
+options["allowHTML"] = true;
+options["page"] = "disable";
+
+    var chart = new google.visualization.Table(
+    document.getElementById('TableID3780757e775a')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "table";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartTableID3780757e775a);
+})();
+function displayChartTableID3780757e775a() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+<!-- jsChart -->  
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID3780757e775a"></script>
+ 
+<!-- divChart -->
+  
+<div id="TableID3780757e775a" 
+  style="width: 1220; height: 400;">
+</div>
+
+<p></div>
+</div>
+</div></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>Using the Factor Scores: Perceptual Maps</h2>
+  </hgroup>
+  <article data-timings="">
+    <!-- ScatterChart generated in R 3.2.2 by googleVis 0.5.10 package -->
+
+<!-- Wed Jan 27 15:37:43 2016 -->
+
+<!-- jsHeader -->
+
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataScatterChartID378057c52925 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ -0.46,
+1.05 
+],
+[
+ -0.23,
+1.21 
+],
+[
+ 0.68,
+-0.24 
+],
+[
+ 1.13,
+0.4 
+],
+[
+ -0.94,
+1.1 
+],
+[
+ -0.14,
+-1.67 
+],
+[
+ 0.76,
+-0.17 
+],
+[
+ 1.02,
+0.21 
+],
+[
+ -1.76,
+-0.72 
+],
+[
+ 0.43,
+-2.14 
+],
+[
+ -0.87,
+0.4 
+],
+[
+ 0.47,
+0.47 
+],
+[
+ 1.17,
+0.85 
+],
+[
+ 0.55,
+0.8 
+],
+[
+ 1.49,
+-1.5 
+],
+[
+ 0.1,
+0.06 
+],
+[
+ -1.3,
+0.86 
+],
+[
+ -1.43,
+-0.36 
+],
+[
+ -1.42,
+-1.31 
+],
+[
+ 0.74,
+0.69 
+] 
+];
+data.addColumn('number','V1');
+data.addColumn('number','V2');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartScatterChartID378057c52925() {
+var data = gvisDataScatterChartID378057c52925();
+var options = {};
+options["allowHtml"] = true;
+options["legend"] = "none";
+options["lineWidth"] =      0;
+options["pointSize"] =      8;
+options["hAxis.title"] = "Derived Variable (Factor) 2";
+options["title"] = "Data Visualization Using the top 2 Derived Attributes (Factors)";
+options["vAxis"] = {title:'Derived Variable (Factor) 1'};
+options["hAxis"] = {title:'Derived Variable (Factor) 2'};
+options["width"] =    900;
+options["height"] =    500;
+
+    var chart = new google.visualization.ScatterChart(
+    document.getElementById('ScatterChartID378057c52925')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartScatterChartID378057c52925);
+})();
+function displayChartScatterChartID378057c52925() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+
+<!-- jsChart -->  
+
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartScatterChartID378057c52925"></script>
+ 
+
+<!-- divChart -->
+
+<div id="ScatterChartID378057c52925" 
+  style="width: 900; height: 500;">
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    <h2>Factor Analysis: Some (Technical) Concepts</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Correlation</li>
+<li>Variance explained (eigenvalues)</li>
+<li>Scree plot</li>
+<li>varimax rotation</li>
+<li>Factor Loadings (&quot;components&quot;)</li>
+<li>Factor scores</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-24" style="background:;">
+  <hgroup>
+    <h2>Key Questions</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><p>How many factors should we use? Why? Quantitative and Qualitative criteria</p></li>
+<li><p>How can we name and interpret the factors? </p></li>
+<li><p>What are some issues to consider? </p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>Next Class: Cluster Analysis for Segmentation</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="data:image/png;base64,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" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Why this class? Three goals'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Data Analytics Processes: Iterative Process Cycle with a Lifetime'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='What is Dimensionality Deduction and Factor Analysis?'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Factor Analysis: Key idea'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Key Questions'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Dimensionality Reduction and Factor Analysis: 6 (Easy) Steps'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Applying Factor Analysis: Evaluating MBA Applications'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Example Factors'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Step 1: Confirm the data are metric'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Step 2: Decide whether to scale or standardize the data: Summary Statistics'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Data Standardization: Example Code'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Standardized Data: Summary Statistics'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Step 3:  Check correlation matrix to see if Factor Analysis makes sense'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Step 4. Develop a scree plot and decide on the number of factors to be derived'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='How Many Factors? Eigenvalues and Variance Explained'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='How Many Factors? Scree Plot'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='How many factors?'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='Step 5. Interpret the factors'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='For visualization, let&#39;s supress the small numbers...'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='What Factor Loads &quot;Look Good&quot;? Three Technical Quality Criteria'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='Step 6. Save factor scores for subsequent analyses'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='Using the Factor Scores: Perceptual Maps'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Factor Analysis: Some (Technical) Concepts'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='Key Questions'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='Next Class: Cluster Analysis for Segmentation'>
+         25
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

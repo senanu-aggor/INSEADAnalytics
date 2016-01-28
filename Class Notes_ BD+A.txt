@@ -1,0 +1,15 @@
+1. Github R Shell commands
+
+git fetch upstream
+
+git checkout master
+
+git merge upstream/master
+
+
+2. data is not about quantity but the degrees of freedom because of the factors (eigen values)
+
+3. robust analysis is key. Your story (data) should hold under varying conditions or changing parameters
+	ask question: to what extent will your output change if your riskiness factor is adjusted.
+
+4. always have a KPI  for any analytics project
